@@ -1,0 +1,37 @@
+pipeline{
+    agent {label "vinod"}
+
+    stages{
+        stage("code"){
+            steps{
+                echo "this iis cloning code from git"
+                git url: "https://github.com/LondheShubham153/django-notes-app.git", branch: "main"
+                echo "this is cloning code from git"
+
+            }
+
+        }
+        stage("build"){
+            steps{
+                echo "this is building the code"
+                sh "docker build -t django-notes-app:latest ."
+
+            }
+        }
+        stage("test"){
+            steps{
+                echo "this is testing the code"
+
+            }
+
+        }
+        stage("deploye"){
+            steps{
+                echo "this is deploying the code"
+
+            }
+
+        }
+
+    }
+}
